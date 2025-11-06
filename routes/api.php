@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\IpManagementApiController;
 |
 */
 
-Route::middleware(['api.key'])->group(function () {
+Route::middleware(['verify.api.key'])->group(function () {  // <-- PERUBAHAN DISINI
 
     // Activity Logging
     Route::post('/activities', [ActivityHubController::class, 'logActivity']);
@@ -54,6 +54,9 @@ Route::middleware(['api.key'])->group(function () {
 | Public Routes (without API Key)
 |--------------------------------------------------------------------------
 */
+
+// Tambahkan endpoint tanpa autentikasi untuk pengujian
+Route::post('/ip/register-public', [IpManagementApiController::class, 'registerIp']);
 
 Route::get('/health', function () {
     return response()->json([
