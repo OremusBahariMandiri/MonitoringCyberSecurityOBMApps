@@ -35,17 +35,10 @@ Route::middleware(['api.key'])->group(function () {
 
     // IP Management
     Route::prefix('ip')->group(function () {
-        Route::get('/check/{ip}', [ActivityHubController::class, 'checkIpStatus']);
-
-        // Tambahan route untuk manajemen IP (opsional, untuk API)
-        Route::get('/list', [IpManagementApiController::class, 'index']);
-        Route::post('/add', [IpManagementApiController::class, 'store']);
-        Route::put('/update/{id}', [IpManagementApiController::class, 'update']);
-        Route::delete('/delete/{id}', [IpManagementApiController::class, 'destroy']);
-        Route::post('/{id}/activate', [IpManagementApiController::class, 'activate']);
-        Route::post('/{id}/deactivate', [IpManagementApiController::class, 'deactivate']);
+        Route::get('/check/{ip}', [IpManagementApiController::class, 'checkStatus']);
+        Route::post('/register', [IpManagementApiController::class, 'registerIp']);
+        Route::get('/list', [IpManagementApiController::class, 'listIps']);
     });
-
     // Statistics
     Route::prefix('statistics')->group(function () {
         Route::get('/dashboard', [ActivityHubController::class, 'getDashboardStats']);
