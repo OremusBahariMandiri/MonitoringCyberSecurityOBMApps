@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ActivityHubController;
+use App\Http\Controllers\Api\IpManagementApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ use App\Http\Controllers\Api\ActivityHubController;
 |
 */
 
-Route::middleware(['api'])->group(function () {
+Route::middleware(['api.key'])->group(function () {
 
     // Activity Logging
     Route::post('/activities', [ActivityHubController::class, 'logActivity']);
@@ -35,12 +36,23 @@ Route::middleware(['api'])->group(function () {
     // IP Management
     Route::prefix('ip')->group(function () {
         Route::get('/check/{ip}', [ActivityHubController::class, 'checkIpStatus']);
+
+        // Tambahan route untuk manajemen IP (opsional, untuk API)
+        Route::get('/list', [IpManagementApiController::class, 'index']);
+        Route::post('/add', [IpManagementApiController::class, 'store']);
+        Route::put('/update/{id}', [IpManagementApiController::class, 'update']);
+        Route::delete('/delete/{id}', [IpManagementApiController::class, 'destroy']);
+        Route::post('/{id}/activate', [IpManagementApiController::class, 'activate']);
+        Route::post('/{id}/deactivate', [IpManagementApiController::class, 'deactivate']);
     });
 
     // Statistics
     Route::prefix('statistics')->group(function () {
         Route::get('/dashboard', [ActivityHubController::class, 'getDashboardStats']);
         Route::get('/activity-trend', [ActivityHubController::class, 'getActivityTrend']);
+
+        // Tambahan route untuk statistik IP
+        Route::get('/ip-summary', [ActivityHubController::class, 'getIpStatistics']);
     });
 });
 
