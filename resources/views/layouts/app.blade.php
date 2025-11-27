@@ -68,11 +68,11 @@
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Active Sessions</span>
                     </a>
 
-                    <a href="{{ route('security.index') }}"
+                    {{-- <a href="{{ route('security.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('security.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
                         <i class="fas fa-shield-alt w-6"></i>
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Security Logs</span>
-                    </a>
+                    </a> --}}
 
                     <a href="{{ route('ip-management.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('ip-management.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
@@ -80,29 +80,29 @@
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>IP Management</span>
                     </a>
 
-                    <a href="{{ route('data-changes.index') }}"
+                    {{-- <a href="{{ route('data-changes.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('data-changes.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
                         <i class="fas fa-history w-6"></i>
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Data Changes</span>
-                    </a>
+                    </a> --}}
 
-                    <a href="{{ route('alerts.index') }}"
+                    {{-- <a href="{{ route('alerts.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('alerts.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
                         <i class="fas fa-bell w-6"></i>
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Alerts</span>
-                    </a>
+                    </a> --}}
 
-                    <a href="{{ route('statistics.index') }}"
+                    {{-- <a href="{{ route('statistics.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('statistics.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
                         <i class="fas fa-chart-bar w-6"></i>
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Statistics</span>
-                    </a>
+                    </a> --}}
 
-                    <a href="{{ route('applications.index') }}"
+                    {{-- <a href="{{ route('applications.index') }}"
                        class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition {{ request()->routeIs('applications.*') ? 'bg-gray-800 text-white border-l-4 border-blue-600' : '' }}">
                         <i class="fas fa-cube w-6"></i>
                         <span class="ml-3" x-show="sidebarOpen" x-cloak>Applications</span>
-                    </a>
+                    </a> --}}
                 </nav>
 
                 <!-- Sidebar Toggle -->
